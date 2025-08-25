@@ -1,0 +1,103 @@
+/* src/styles/login.css */
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa toda a altura da tela */
+  background-color: #f4f4f4;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgb(0, 0, 0);
+  width: 100%;
+  max-width: 360px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 22px;
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #161c57;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:disabled {
+  background-color: #8a89a7;
+  cursor: not-allowed;
+}
+
+form button[type="button"] {
+  background: none;
+  border: none;
+  color: #0467ad;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+form p {
+  color: red;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+form a {
+  margin-top: 30px;
+  color: #0077cc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Estilo do loader */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+/* Animação giratória */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
