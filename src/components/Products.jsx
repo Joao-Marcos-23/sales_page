@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import converterDolarParaReal from "../utils/cotacao";
 import '../styles/ProductCard.css';
 import ProductCard from "./ProductCard";
 
+
 export default function Products() {
-  const navigate = useNavigate();
-  const location = useLocation();
+const navigate = useNavigate();
+
 
   const [products, setProducts] = useState([]);
   const [precosConvertidos, setPrecosConvertidos] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [setCart,Cart] = useState([]);
+  
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -28,29 +31,52 @@ export default function Products() {
         }, {});
 
         setPrecosConvertidos(precosMap);
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+        
       });
   }, []);
 
-  if (isLoading) return <p>Carregando a pagina...</p>;
+  if (isLoading) return (
+  <div className="spinner-container">
+    <div className="spinner"></div>
+    <p>Carregando a página...</p>
+  </div>
+);
 
-  return (
-    
+const addToCart = (product) => {
+    setCart([Cart, product])
+}
+
+return (
   <>
-
-    <h2>Produtos</h2>
-    <button onClick={() => navigate(-1)}>Voltar</button>
-
-    <div className="product-grid">
+<div> 
+  <div className="product-grid">
       {products.map(product => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          precoConvertido={precosConvertidos[product.id]}
-        />
+        
+          <ProductCard 
+            product={product}
+            precoConvertido={precosConvertidos[product.id]}
+          />
+          
+
       ))}
     </div>
-);
+  </div>
+    
+
+
+
   </>
-  );
-} 
+)
+
+
+
+
+
+};
+
+
+
+

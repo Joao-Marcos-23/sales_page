@@ -38,6 +38,7 @@ export default function Login() {
   };
 
   return (
+    <div className="container">
    <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h2>Faça o login em sua conta</h2>
@@ -73,6 +74,7 @@ export default function Login() {
           Entrar via link
         </Link>
       </form>
+    </div>
     </div>
   );
 }
